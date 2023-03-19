@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+#myButton {
+  position: relative;
+  top: 0px;
+}
+.hidden {
+  display: none;
+}
+
+</style>
+
+<h1>The progress element</h1>
+<button id="myButton">convert</button>
+
+<br>
+<progress class="progress" value="10" max="100"> 32% </progress>
+<script>
+const myButton = document.getElementById("myButton");
+const myProgress=document.querySelector(".progress");
+myProgress.classList.add("hidden");
+// make a hook state to change the click
+myButton.addEventListener("click", () => {
+myButton.innerHTML="converting"
+  myButton.style.top = "-10px";
+  myProgress.classList.remove("hidden");
+  if(myProgress.value===100)
+  {
+  myProgress.classList.add("hidden");
+    myButton.innerHTML="convert"
+    myButton.style.top = "10px";
+  }
+});
+
+</script>
+</body>
+</html>
