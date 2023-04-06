@@ -21,11 +21,11 @@ function App() {
   const handleChange = e => {
     setImage(e.target.files[0]);
     setChange(!change)
-    console.log("change catch")
+    
 
   }
   const handleSubmit = () => {
-    console.log("handle submit");
+    
 
     Tesseract.recognize(selectedImage, 'eng', {
       logger: (m) => {
@@ -33,7 +33,7 @@ function App() {
           if (inputValue === "convert") {
             if (Math.floor(m.progress * 100) === 100) {
               setInputValue("convert");
-              console.log("100 hit");
+              
               SetShowProgress(false);
               const value = textareaRef.current.value;
               const download_name=selectedImage.name.slice(0, -3).concat("txt").replace(/\s+/g, "");
@@ -45,12 +45,12 @@ function App() {
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
-              console.log(download_name);
+              
 
             }
             else {
               setInputValue(Math.floor(m.progress * 100));
-              console.log(inputValue);
+              
               SetShowProgress(!ShowProgress);
               setProgress(Math.floor(m.progress * 100));
 
@@ -65,10 +65,10 @@ function App() {
       .then((result) => {
         setText(result.data.text);
       })
-    console.log(inputValue);
-    console.log(progress);
-    console.log(text);
-    console.log(change);
+    
+    
+    
+    
   }
   return (
     <>
